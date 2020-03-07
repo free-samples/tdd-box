@@ -11,7 +11,7 @@ provisioner:
     audit_mode: :disabled
 
 platforms:
-  - name: centos-7.3
+  - name: centos-7.7
 suites:
   - name: default
     run_list:
