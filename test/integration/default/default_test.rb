@@ -11,11 +11,6 @@
 # node = json(node_json).params
 # # puts node.inspect
 
-# # # # encoding: utf-8
-# describe package('git') do
-#   it { should_not be_installed }
-# end
-
 describe package('nginx') do
   it { should be_installed }
 end
@@ -27,6 +22,6 @@ describe service('nginx') do
 end
 
 describe command('/usr/bin/curl http://127.0.0.1') do
-  its('stdout') { should include("Welcome to nginx!") }
+  its('stdout') { should include("nginx") }
 end
 
