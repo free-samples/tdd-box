@@ -40,7 +40,7 @@ bundle exec kitchen converge
 
 This should run the commands defined in the cookbook. In this particular cookbook, nginx should be installed, enabled and started.
 
-We have test defined in our cookbook. Once the vm or container has been created and converged, we should now run our tests:
+We have some tests defined in our cookbook. Once the vm or container has been created and converged, we should now run our tests:
 
 ```
 bundle exec kitchen verify
