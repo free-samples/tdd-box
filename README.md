@@ -14,7 +14,7 @@ Basic cookbook that installs nginx and is used to explain Chef's Inspec workflow
 
 ## Development Environment
 
-Though not flawless, the simplest way I've found to install the required applications is by using a Gemfile. We can install the gems with:
+Though not flawless, the simplest way I've found to install the required dependencies is by using a Gemfile. We can install the gems with:
 
 ```
 bundle install
@@ -24,13 +24,13 @@ Some of the gems may require tweaks in the config, but that will really depend o
 
 ## Running the Box
 
-Once the gems are installed, we will create the vm or container with kitchen:
+Once the gems are installed, we will create the vm or container (instance) with kitchen:
 
 ```
 bundle exec kitchen create
 ```
 
-This will use vagrant or docker (depending on your .kitchen.yml file) to download the vagrant image or the docker image. The image will be downloaded and a copy will be locally deployed. This will be a bareboned copy.
+This will use vagrant or docker (depending on your .kitchen.yml file) to download the instane image. The image will be downloaded and a copy will be locally deployed. This will be a bareboned copy.
 
 To run the commands from the cookbook, we will need to converge:
 
@@ -38,17 +38,17 @@ To run the commands from the cookbook, we will need to converge:
 bundle exec kitchen converge
 ```
 
-This should run the commands defined in the cookbook. In this particular cookbook, nginx should be installed, enabled and started.
+This should run the commands defined in the cookbook within the instance. In this particular cookbook, nginx should be installed, enabled and started.
 
-We have some tests defined in our cookbook. Once the vm or container has been created and converged, we should now run our tests:
+We have some tests defined in our cookbook. Once the instance has been created and converged, we should now run our tests:
 
 ```
 bundle exec kitchen verify
 ```
 
-This will run inspec (https://www.inspec.io/) tests agains our vm or container.
+This will run inspec (https://www.inspec.io/) tests agains our instance.
 
-Once our tests have passed, we should destroy our vm or container
+Once our tests have passed, we should destroy our instance
 
 ```
 bundle exec kitchen destroy
@@ -56,12 +56,12 @@ bundle exec kitchen destroy
 
 ## Debugging
 
-You may need to debug the execution of the vm or container. We have a couple of tools that we may use for this. We can ssh into the machine:
+You may need to debug the execution of the instance. We have a couple of tools that we may use for this. We can ssh into the instance:
 
 ```
 bundle exec kitchen login
 ```
-This will ssh into the box and we may look around within that box.
+This will ssh into the instance and we may look around within that instance.
 
 Inspec is a ruby based DSL so we may use ruby gems within the specs. A useful tool for debugging is pry (https://github.com/pry/pry). Within our inspec test we can add the line
 
@@ -81,4 +81,4 @@ bundle exec kitchen converge --log-level=debug
 
 The project uses the MIT License. See LICENSE for details.
 
-Author:: Bernardo Pineda
+Author:: Bernardo Pineda (_@bernardopineda.mx)
