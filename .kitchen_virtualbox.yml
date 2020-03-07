@@ -11,7 +11,7 @@ provisioner:
     audit_mode: :disabled
 
 platforms:
-  - name: centos-7.3
+  - name: centos-7.7
 suites:
   - name: default
     run_list:
@@ -23,3 +23,14 @@ suites:
           # url: https://public-github-repo/user-name/repo-name/archive/master.zip
           path: test/integration/default
     attributes:
+
+#  - name: other-profile
+#    run_list:
+#      - recipe[tdd-box::default]
+#    verifier:
+#      name: inspec
+#      inspec_tests:
+#        - name: InspecTests
+#          # url: https://public-github-repo/user-name/repo-name/archive/master.zip
+#          path: test/integration/default
+#    attributes:
