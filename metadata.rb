@@ -7,6 +7,4 @@ long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 
 version          '1.0.0'
 
-supports "centos", ">= 7.3"
-depends 'nginx',          '= 7.0.2'
-
+depends "nginx"
